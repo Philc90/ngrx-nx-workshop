@@ -18,7 +18,7 @@ import { RoutingModule } from './router/routing.module';
     RoutingModule,
     CartIconModule,
     MatToolbarModule,
-    StoreModule.forRoot({ product: productsReducer }),
+    StoreModule.forRoot({ product: productsReducer }), // wire in reducer
     StoreDevtoolsModule.instrument({ maxAge: 50 }),
   ],
   bootstrap: [AppComponent],
