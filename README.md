@@ -96,3 +96,13 @@ Nx Cloud pairs with Nx in order to enable you to build and test code more rapidl
 Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
 
 Visit [Nx Cloud](https://nx.app/) to learn more.
+
+# Workshop Notes
+Effects
+2 ways:
+- Class-based (pg 50 of slides)
+- Functional (not available until Injector avail in Angular 15/16)
+
+Functional vs class based effects
+- class: need to create class to wrap, and name must match observable
+- functional: no longer need to create class, could be easier to test

@@ -23,6 +23,6 @@ export class ErrorEffects {
         })
       );
     },
-    { dispatch: false }
+    { dispatch: false } // dispatch true will have infinite loop
   );
 }
