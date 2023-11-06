@@ -39,10 +39,10 @@ export class ProductEffects {
   fetchCurrentProduct$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(productDetailsActions.productDetailsOpened),
-      concatLatestFrom(() =>
+      concatLatestFrom(() => // could have also used switchMap
         this.store
           .select(selectCurrentProductId)
-          .pipe(filter((id): id is string => id != null))
+          .pipe(filter((id): id is string => id != null)) // possible issue: swallowing error instead of propgating. Approach here: if it's not there, don't call it
       ),
       switchMap(([, id]) =>
         this.productService.getProduct(id).pipe(
