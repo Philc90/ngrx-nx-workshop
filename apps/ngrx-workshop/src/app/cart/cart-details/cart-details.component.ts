@@ -15,6 +15,7 @@ import { CartService } from '../cart.service';
 export class CartDetailsComponent {
   cartProducts$: Observable<CartProduct[]> = this.cartService.cartItems$.pipe(
     switchMap((cartItems) =>
+      // switchMap: cancel previous observable, get new one
       from(cartItems).pipe(
         mergeMap((item) =>
           this.productService

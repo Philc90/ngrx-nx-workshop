@@ -6,11 +6,16 @@ import { CartItem } from '@ngrx-nx-workshop/api-interfaces';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
+  // simple state management
+  // cannot change state outside of class except with method
   private cartItemsSubject$ = new BehaviorSubject<CartItem[]>([]);
   cartItems$ = this.cartItemsSubject$.asObservable();
 
   constructor(private readonly http: HttpClient) {}
 
+  // methods below: like mergeMap. No control over what http request resolves first
+
+  // multiple ways to refresh cart; you could also make sure to show latest data by making another call
   addProduct(id: string): void {
     this.http
       .post<CartItem[]>(`/api/cart/add/${id}`, {})

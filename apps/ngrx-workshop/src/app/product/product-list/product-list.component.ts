@@ -22,7 +22,7 @@ export class ProductListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.products$ = this.productService.getProducts();
+    this.products$ = this.productService.getProducts(); // not completely reactive; only getting products once
 
     this.customerRatings$ = this.ratingService.getRatings().pipe(
       map((ratingsArray) =>
